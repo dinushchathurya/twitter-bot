@@ -12,5 +12,12 @@ class TwitterBot:
     #Initialize the browser
     self.bot = webdriver.Firefox()
 
+    #Login method
+    def login(self):
+        bot = self.bot
+        bot.get('https://twitter.com/')
+        #Pause your app for 3 seconds
+        time.sleep(3)
+
 
 
