@@ -9,7 +9,8 @@ class TwitterBot:
     def __init__(self,username,password):
     self.username = username
     self.password = password
-    
+    #Initialize the browser
+    self.bot = webdriver.Firefox()
 
 
 
