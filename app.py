@@ -33,10 +33,25 @@ class TwitterBot:
         bot = self.bot
         bot.get('https://twitter.com/search?q='+hashtag+'&src=typd')
         time.sleep(3)
+        far i in range (1,3):
+          bot.execute_script('window.scrollTo(0,document.body.scrollHeight)')
+          time.sleep(2)
+          tweets = bot.find_element_by_class_name('tweet')
+          links = [elem.get_attribute('data-permalink-path') for elem in tweets]
+          for link in links:
+              bot.get('https://twitter.com/' + link)
+              try:
+                  bot.find_element_by_class_name('HeartAnimation').click()
+                  time.sleep(10)
+              except Exception as ex:
+                  time.sleep(60)
+    
     #Create instance of TwitterBot class
     ed = TwitterBot('your email' , 'your password')
     #Call the login function
     ed.login()
+    ed.like_tweet ('enter here the hashtag you need to like')
+   
 
 
 
