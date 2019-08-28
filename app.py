@@ -5,7 +5,11 @@ import time
 
 #Create twitter bot class
 class TwitterBot:
-  
+    #initialize the class
+    def __init__(self,username,password):
+    self.username = username
+    self.password = password
+    
 
 
 
